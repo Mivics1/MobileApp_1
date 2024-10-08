@@ -126,23 +126,7 @@ class _LandingPageState extends State<_LandingPage>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Logo at the top center
-            // Column(
-            //   children: [
-            //     Image.asset(
-            //       '/Users/mac/Documents/MobileApp_Dev/Mobile_1/app_1/assets/logo.png', // Replace with your logo asset path
-            //       height: 100, // Adjust the height as necessary
-            //     ),
-            //     const SizedBox(height: 8),
-            //     const Text(
-            //       'Hoplr',
-            //       style: TextStyle(
-            //         fontSize: 32,
-            //         fontWeight: FontWeight.bold,
-            //       ),
-            //     ),
-            //   ],
-            // ),
+            
             const SizedBox(height: 50),
 
             // Moving Quotes
