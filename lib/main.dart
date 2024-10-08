@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/animation.dart';
+import './views/auth/login_page.dart';
+import './views/auth/register_page.dart';
 
 void main() {
   runApp(const HoplrApp());
@@ -115,9 +117,10 @@ class _LandingPageState extends State<_LandingPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFffe44a),
       appBar: AppBar(
         title: Image.asset(
-          '/Users/mac/Documents/MobileApp_Dev/Mobile_1/app_1/assets/logo.png', // Replace with your logo asset path
+          '/Users/mac/Documents/MobileApp_Dev/Mobile_1/app_1/assets/last.jpeg', // Replace with your logo asset path
           height: 50, // Adjust the height as necessary
         ), // App bar title
       ),
@@ -126,7 +129,6 @@ class _LandingPageState extends State<_LandingPage>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            
             const SizedBox(height: 50),
 
             // Moving Quotes
@@ -146,7 +148,7 @@ class _LandingPageState extends State<_LandingPage>
             ),
             const SizedBox(height: 80),
 
-// Log In Button
+            // Log In Button
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFFFF305D), // Background color
@@ -154,7 +156,11 @@ class _LandingPageState extends State<_LandingPage>
                 minimumSize: const Size(400, 50), // Minimum size
               ),
               onPressed: () {
-                // Handle Log In button action
+                // Navigate to the login page when button is pressed
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
               },
               child: const Text(
                 'Already a member? Log in',
@@ -184,6 +190,10 @@ class _LandingPageState extends State<_LandingPage>
                   minimumSize: const Size(400, 50), // Minimum size
                 ),
                 onPressed: () {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CreateAccountPage()),
+                );
                   // Handle Create Account button action
                 },
                 child: const Text(
