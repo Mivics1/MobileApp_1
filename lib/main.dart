@@ -72,41 +72,41 @@ class _LandingPageState extends State<_LandingPage>
     Future.delayed(const Duration(seconds: 5), _changeQuote);
   }
 
-  // Function to edit a quote
-  void _editQuote(int index) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        // TextEditingController to manage text input
-        final TextEditingController controller =
-            TextEditingController(text: _quotes[index]);
+  // // Function to edit a quote
+  // void _editQuote(int index) {
+  //   showDialog(
+  //     context: context,
+  //     builder: (context) {
+  //       // TextEditingController to manage text input
+  //       final TextEditingController controller =
+  //           TextEditingController(text: _quotes[index]);
 
-        return AlertDialog(
-          title: const Text('Edit Quote'), // Title of the dialog
-          content: TextField(
-            controller: controller,
-            decoration:
-                const InputDecoration(labelText: 'Quote'), // Input label
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  _quotes[index] = controller.text; // Update the quote
-                });
-                Navigator.of(context).pop(); // Close the dialog
-              },
-              child: const Text('Save'), // Save button
-            ),
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(), // Cancel button
-              child: const Text('Cancel'),
-            ),
-          ],
-        );
-      },
-    );
-  }
+  //       return AlertDialog(
+  //         title: const Text('Edit Quote'), // Title of the dialog
+  //         content: TextField(
+  //           controller: controller,
+  //           decoration:
+  //               const InputDecoration(labelText: 'Quote'), // Input label
+  //         ),
+  //         actions: [
+  //           TextButton(
+  //             onPressed: () {
+  //               setState(() {
+  //                 _quotes[index] = controller.text; // Update the quote
+  //               });
+  //               Navigator.of(context).pop(); // Close the dialog
+  //             },
+  //             child: const Text('Save'), // Save button
+  //           ),
+  //           TextButton(
+  //             onPressed: () => Navigator.of(context).pop(), // Cancel button
+  //             child: const Text('Cancel'),
+  //           ),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 
   @override
   void dispose() {
@@ -120,7 +120,7 @@ class _LandingPageState extends State<_LandingPage>
       backgroundColor: const Color(0xFFffe44a),
       appBar: AppBar(
         title: Image.asset(
-          '/Users/mac/Documents/MobileApp_Dev/Mobile_1/app_1/assets/last.jpeg', // Replace with your logo asset path
+          '/Users/agboolamichaeldaramola/Dev/MobileApp_1/assets/last.jpeg', // Replace with your logo asset path
           height: 50, // Adjust the height as necessary
         ), // App bar title
       ),
@@ -135,7 +135,7 @@ class _LandingPageState extends State<_LandingPage>
             FadeTransition(
               opacity: _animation,
               child: GestureDetector(
-                onTap: () => _editQuote(_quoteIndex), // Edit quote on tap
+                // onTap: () => _editQuote(_quoteIndex), // Edit quote on tap
                 child: Text(
                   _quotes[_quoteIndex],
                   textAlign: TextAlign.center,
@@ -184,16 +184,16 @@ class _LandingPageState extends State<_LandingPage>
             // Create Account Button
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(
-                      255, 115, 119, 125), // Background color
+                  backgroundColor: const Color(0xFF73777D), // Background color
                   foregroundColor: Colors.white, // Text color
                   minimumSize: const Size(400, 50), // Minimum size
                 ),
                 onPressed: () {
                   Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const CreateAccountPage()),
-                );
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const CreateAccountPage()),
+                  );
                   // Handle Create Account button action
                 },
                 child: const Text(

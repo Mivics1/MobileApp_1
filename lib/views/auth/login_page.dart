@@ -13,6 +13,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  bool _isObscured = true;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: const Color(0xFFffe44a),
       appBar: AppBar(
         title: Image.asset(
-          '/Users/mac/Documents/MobileApp_Dev/Mobile_1/app_1/assets/last.jpeg', // Replace with your logo asset path
+          '/Users/agboolamichaeldaramola/Dev/MobileApp_1/assets/last.jpeg', // Replace with your logo asset path
           height: 50, // Adjust the height as necessary
         ), // App bar title,
       ),
@@ -35,17 +36,42 @@ class _LoginPageState extends State<LoginPage> {
               decoration: const InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Email',
+                filled: true,
+                fillColor: Color(0xFFFFFFFF), // Background color for TextField
               ),
             ),
             const SizedBox(height: 20),
-
             // Password TextField
             TextField(
+              obscureText: _isObscured, // Controls whether to obscure the text
               controller: _passwordController,
-              obscureText: true,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
+              // obscureText: true,
+              decoration: InputDecoration(
+                border: const OutlineInputBorder(),
                 labelText: 'Password',
+                filled: true,
+                fillColor:
+                    const Color(0xFFFFFFFF), // Background color for TextField
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _isObscured ? Icons.visibility_off : Icons.visibility,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _isObscured = !_isObscured; // Toggle password visibility
+                    });
+                  },
+                ),
+                // border: OutlineInputBorder(
+                //   borderRadius: BorderRadius.circular(30.0),
+                //   borderSide: BorderSide.none, // Removes the default border
+                // ),
+                // enabledBorder: const OutlineInputBorder(
+                //   borderRadius: BorderRadius.circular(30.0),
+                //   borderSide: BorderSide(
+                //     color: Colors.blueAccent, // Border color when not focused
+                //     width: 2.0,
+                //   ),
               ),
             ),
             const SizedBox(height: 20),
@@ -63,6 +89,9 @@ class _LoginPageState extends State<LoginPage> {
                 child: const Text('Log in'),
                 style: ElevatedButton.styleFrom(
                   padding: const EdgeInsets.symmetric(vertical: 15),
+                  textStyle: const TextStyle(fontSize: 18, fontFamily: 'Lato'),
+                  foregroundColor: const Color(0xFF000000),
+                  minimumSize: const Size(400, 50), // Minimum size
                 ),
               ),
             ),
@@ -83,9 +112,8 @@ class _LoginPageState extends State<LoginPage> {
             // Create Account Button
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(
-                      255, 115, 119, 125), // Background color
-                  foregroundColor: Colors.white, // Text color
+                  backgroundColor: const Color(0xFFffffff), // Background color
+                  foregroundColor: const Color(0xFF1877F2), // Text color
                   minimumSize: const Size(400, 50), // Minimum size
                 ),
                 onPressed: () {
@@ -99,9 +127,8 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 20), // Space between "or" and next button
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(
-                      255, 115, 119, 125), // Background color
-                  foregroundColor: Colors.white, // Text color
+                  backgroundColor: const Color(0xFFFFFFFF), // Background color
+                  foregroundColor: const Color(0xFFEA4335), // Text color
                   minimumSize: const Size(400, 50), // Minimum size
                 ),
                 onPressed: () {
@@ -113,22 +140,22 @@ class _LoginPageState extends State<LoginPage> {
                 ) // Button text
                 ),
             const SizedBox(height: 20), // Space between "or" and next button
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color.fromARGB(
-                      255, 115, 119, 125), // Background color
-                  foregroundColor: Colors.white, // Text color
-                  minimumSize: const Size(400, 50), // Minimum size
-                ),
-                onPressed: () {
-                  // Handle Create Account button action
-                },
-                child: const Text(
-                  'Log in with Apple',
-                  style: TextStyle(fontSize: 18, fontFamily: 'Lato'),
-                ) // Button text
-                ),
-            const SizedBox(height: 100), // Space between "or" and next button
+            // ElevatedButton(
+            //     style: ElevatedButton.styleFrom(
+            //       backgroundColor: const Color.fromARGB(
+            //           255, 115, 119, 125), // Background color
+            //       foregroundColor: Colors.white, // Text color
+            //       minimumSize: const Size(400, 50), // Minimum size
+            //     ),
+            //     onPressed: () {
+            //       // Handle Create Account button action
+            //     },
+            //     child: const Text(
+            //       'Log in with Apple',
+            //       style: TextStyle(fontSize: 18, fontFamily: 'Lato'),
+            //     ) // Button text
+            //     ),
+            const SizedBox(height: 60), // Space between "or" and next button
             // "Not a member yet? Register here" text
             TextButton(
               onPressed: () {
@@ -142,8 +169,9 @@ class _LoginPageState extends State<LoginPage> {
               child: const Text(
                 'Not a member yet? Register here',
                 style: TextStyle(
-                  fontSize: 16,
-                  decoration: TextDecoration.underline,
+                  fontSize: 18,
+                  fontFamily: 'Lato',
+                  color: Color(0xFF000000),
                 ),
               ),
             ),
