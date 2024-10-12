@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api, sort_child_properties_last
 
 import 'package:flutter/material.dart';
+import '../homepage/home_page.dart';
 import './register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -21,7 +22,7 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: const Color(0xFFffe44a),
       appBar: AppBar(
         title: Image.asset(
-          '/Users/agboolamichaeldaramola/Dev/MobileApp_1/assets/last.jpeg', // Replace with your logo asset path
+          '/Users/mac/Documents/MobileApp_Dev/Mobile_1/MobileApp_1/assets/last.jpeg', // Replace with your logo asset path
           height: 50, // Adjust the height as necessary
         ), // App bar title,
       ),
@@ -81,10 +82,14 @@ class _LoginPageState extends State<LoginPage> {
               width: double.infinity, // Expands the button to full width
               child: ElevatedButton(
                 onPressed: () {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
                   // Perform login logic
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Logged in!')),
-                  );
+                  // ScaffoldMessenger.of(context).showSnackBar(
+                  //   const SnackBar(content: Text('Logged in!')),
+                  // );
                 },
                 child: const Text('Log in'),
                 style: ElevatedButton.styleFrom(

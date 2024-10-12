@@ -20,7 +20,7 @@ class _CreateAccountPageState extends State<CreateAccountPage> {
       backgroundColor: const Color(0xFFffe44a),
       appBar: AppBar(
         title: Image.asset(
-          '/Users/agboolamichaeldaramola/Dev/MobileApp_1/assets/last.jpeg', // Replace with your logo asset path
+          '/Users/mac/Documents/MobileApp_Dev/Mobile_1/MobileApp_1/assets/last.jpeg', // Replace with your logo asset path
           height: 50, // Adjust the height as necessary
         ), // App bar title,
       ),
